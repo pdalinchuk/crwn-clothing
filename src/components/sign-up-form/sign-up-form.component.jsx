@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
-import Button from '../button/button.component';
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
-import './sign-up-form.styles.scss';
+import { SignUpContainer } from './sign-up-form.styles.jsx';
 
 import {
   createAuthUserWithEmailAndPassword,
@@ -54,7 +54,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className='sign-up-container'>
+    <SignUpContainer>
       <h2>Don't have an account?</h2>
       <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
@@ -93,9 +93,11 @@ const SignUpForm = () => {
           value={confirmPassword}
           required
         />
-        <Button type='submit'>Sign up</Button>
+        <Button buttonType={BUTTON_TYPE_CLASSES.base} type='submit'>
+          Sign up
+        </Button>
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
 
